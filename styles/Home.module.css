@@ -1,3 +1,5 @@
+
+
 .App {
   min-height: 100vh;
   display: flex;
@@ -15,7 +17,7 @@
   align-items: center;
   justify-content: space-between;
   font-size: 50px;
-  color: white;
+  color: rgb(0, 0, 0);
   padding-left: 20px;
   padding-right: 20px;
   flex-wrap: wrap;
@@ -28,7 +30,7 @@
   align-items: center;
   justify-content: flex-start;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: rgb(0, 0, 0);
   padding-top: 50px;
 }
 
@@ -39,7 +41,7 @@
 }
 
 .input {
-  background: #f2f2f2;
+  background: #000000;
 }
 
 .formField {
