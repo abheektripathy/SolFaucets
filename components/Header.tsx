@@ -78,7 +78,7 @@ export function HeaderMiddle() {
 
 
   return (
-    <Header height={65} mb={200}>
+    <Header height={65} mb={80}>
 
       <Container className={classes.inner}>
          
