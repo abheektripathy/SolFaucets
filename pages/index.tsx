@@ -65,14 +65,14 @@ const Home: NextPage = (props) => {
     <>
       
       <HeaderMiddle></HeaderMiddle>
+      
+      
+      
+      <Stack align="center" spacing='md'>
       <Title size="4rem" align="center" >
           Sf.
         </Title>
-      <br></br>
-      
-      
-      <Stack align="center">
-        <Title size="3rem" align="center">
+        <Title size="3rem" align="center" >
           Get Devnet Sol directly Airdropped to your wallet 🚀
         </Title>
         <Title size="20px">gg right?</Title>
