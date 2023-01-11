@@ -65,9 +65,11 @@ const Home: NextPage = (props) => {
     <>
       
       <HeaderMiddle></HeaderMiddle>
+      <Title size="4rem" align="center" >
+          Sf.
+        </Title>
       <br></br>
-      <br></br>
-      <br></br>
+      
       
       <Stack align="center">
         <Title size="3rem" align="center">

@@ -78,12 +78,12 @@ export function HeaderMiddle() {
 
 
   return (
-    <Header height={65} mb={150}>
+    <Header height={65} mb={200}>
 
       <Container className={classes.inner}>
          
         <Image src={sollogo} width={170} height={27}/>
-        <Title order={1}>SolFaucet</Title>
+        
        
         
 
@@ -91,7 +91,7 @@ export function HeaderMiddle() {
         
 
         
-           <WalletMultiButton className='margin-left' ></WalletMultiButton> 
+           <WalletMultiButton className='marginLeft' ></WalletMultiButton> 
          
         
       </Container>
