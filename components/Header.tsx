@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/alt-text */
 import { useState } from 'react';
-import { createStyles, Header, Group, ActionIcon, Container, Burger } from '@mantine/core';
+import { createStyles, Header, Group, ActionIcon, Container, Burger, Title } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 
 import Image from 'next/image';
@@ -55,7 +55,7 @@ const useStyles = createStyles((theme) => ({
     fontWeight: 500,
 
     '&:hover': {
-      backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[0],
+      backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[0] : theme.colors.gray[0],
     },
   },
 
@@ -83,7 +83,7 @@ export function HeaderMiddle() {
       <Container className={classes.inner}>
          
         <Image src={sollogo} width={170} height={27}/>
-        <h1>SolFaucets</h1> 
+        <Title order={1}>SolFaucet</Title>
        
         
 
@@ -91,7 +91,7 @@ export function HeaderMiddle() {
         
 
         
-           <WalletMultiButton className='theme' ></WalletMultiButton> 
+           <WalletMultiButton className='margin-left' ></WalletMultiButton> 
          
         
       </Container>

@@ -27,19 +27,21 @@ function MyApp({ Component, pageProps }) {
   );
 
   return (
-    <MantineProvider
+   
+      <ConnectionProvider endpoint={endpoint}>
+        <WalletProvider wallets={wallets} autoConnect>
+          <WalletModalProvider>
+          <MantineProvider
       withGlobalStyles
       withNormalizeCSS
       theme={{ colorScheme: "dark"}}
     >
-      <ConnectionProvider endpoint={endpoint}>
-        <WalletProvider wallets={wallets} autoConnect>
-          <WalletModalProvider>
             <Component {...pageProps} />
+            </MantineProvider>
           </WalletModalProvider>
         </WalletProvider>
       </ConnectionProvider>
-    </MantineProvider>
+    
   );
 }
 
