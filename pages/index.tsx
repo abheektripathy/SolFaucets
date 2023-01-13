@@ -11,8 +11,8 @@ import * as Web3 from "@solana/web3.js";
 import { useWallet } from "@solana/wallet-adapter-react";
 import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
 import bg from "../public/bg.png";
-
-import { IconAlertCircle } from '@tabler/icons';
+import { showNotification, updateNotification } from '@mantine/notifications';
+import { IconAlertCircle, IconCheck } from '@tabler/icons';
 
 
 
@@ -24,12 +24,36 @@ const Home: NextPage = (props) => {
     signer: Web3.PublicKey,
     connection: Web3.Connection
   ) {
+    
     const balance = await connection.getBalance(signer);
     console.log("Balance: ", balance / Web3.LAMPORTS_PER_SOL, "SOL");
+    showNotification({
+      id: 'load-data',
+      loading: true,
+      title: 'Initiating drop WAGMI 🚀',
+      message: 'Checking your balance, talking to them solana nodes🤔',
+      autoClose: false,
+      disallowClose: true,
+    });
     //balance check krega
 
     if (balance / Web3.LAMPORTS_PER_SOL < 1) {
       console.log("Airdropping SOL to account 🚀");
+
+      setTimeout(() => {
+        updateNotification({
+          id: 'load-data',
+          color: 'teal',
+          title: `BALANCE is ${balance/Web3.LAMPORTS_PER_SOL} SOL`,
+          message: 'Airdropping SOL to account 🚀',
+          icon: <IconCheck size={16} />,
+          autoClose: 2000,
+        });
+      }, 3000);
+      
+
+
+      
 
       //this is the sig, which requests the airsrop
       const airdropSignature = await connection.requestAirdrop(
@@ -53,8 +77,24 @@ const Home: NextPage = (props) => {
         newBalance / Web3.LAMPORTS_PER_SOL,
         "SOL"
       );
+
+      return 'Airdropping SOL to account 🚀'
     } else {
+
+      setTimeout(() => {
+        updateNotification({
+          id: 'load-data',
+          color: 'teal',
+          title: `BALANCE is ${balance/Web3.LAMPORTS_PER_SOL} SOL`,
+          message: 'Account already has SOL 💰, dont be greedy, GO BUIDL 🛠️',
+          icon: <IconCheck size={16} />,
+          autoClose: 5000,
+        });
+      }, 3000);
+
+      
       console.log("Account already has SOL 💰, bich dont be greedy");
+      return 'Account already has SOL 💰, bich dont be greedy'
     }
   }
 
@@ -128,7 +168,10 @@ const Home: NextPage = (props) => {
           Sf.
         </Title>
         <Title size="3rem" align="center" >
-          Get Devnet Sol directly Airdropped to your wallet 🚀
+          Get Devnet Sol directly
+        </Title>
+        <Title size="3rem" align="center" >
+          Airdropped to your wallet 🚀
         </Title>
         <Title size="20px">gg right?</Title>
         <br></br>
@@ -145,7 +188,6 @@ const Home: NextPage = (props) => {
             const connection2 = await new Web3.Connection(Web3.clusterApiUrl("devnet"));
             Airdropifbroke(publicKey, connection2);
             
-          
             
           }}
         >

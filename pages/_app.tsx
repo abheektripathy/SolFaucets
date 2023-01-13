@@ -2,6 +2,7 @@ import { MantineProvider } from "@mantine/core";
 import React, { useMemo } from "react";
 import { WalletAdapterNetwork } from "@solana/wallet-adapter-base";
 import { WalletModalProvider } from "@solana/wallet-adapter-react-ui";
+import { NotificationsProvider } from '@mantine/notifications';
 import {
   ConnectionProvider,
   WalletProvider,
@@ -36,8 +37,9 @@ function MyApp({ Component, pageProps }) {
       withGlobalStyles
       withNormalizeCSS
       theme={{ colorScheme: "dark"}}
-    >
+    ><NotificationsProvider>
             <Component {...pageProps} />
+            </NotificationsProvider>
             </MantineProvider>
           </WalletModalProvider>
         </WalletProvider>
