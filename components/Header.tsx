@@ -1,4 +1,5 @@
 /* eslint-disable jsx-a11y/alt-text */
+'use client'
 import { useState } from 'react';
 import { createStyles, Header, Group, ActionIcon, Container, Burger, Title } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
@@ -6,6 +7,7 @@ import { useDisclosure } from '@mantine/hooks';
 import Image from 'next/image';
 import sollogo from '../public/solanaLogo.png'
 import { WalletMultiButton } from '@solana/wallet-adapter-react-ui'
+import { getSpacingValue } from '@mantine/core/lib/Box/style-system-props/value-getters/get-spacing-value';
 
 const useStyles = createStyles((theme) => ({
   inner: {
@@ -78,7 +80,13 @@ export function HeaderMiddle() {
 
 
   return (
-    <Header height={65} mb={80}>
+    <Header sx={(theme) => ({
+      background: theme.colors.black,
+      padding: theme.spacing.xs,
+      maxHeight: 200
+    ,
+      
+    })} mb={100} height={'20'}  >
 
       <Container className={classes.inner}>
          
